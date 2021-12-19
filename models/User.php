@@ -22,7 +22,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['email', 'auth_key'], 'safe']
+            [['email','username' ,'auth_key'], 'safe']
         ];
     }
 

@@ -7,6 +7,9 @@
 use yii\bootstrap4\ActiveForm;
 use yii\bootstrap4\Html;
 
+use app\assets\MyAsset;
+MyAsset::register($this);
+
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
