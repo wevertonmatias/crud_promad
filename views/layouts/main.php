@@ -28,7 +28,7 @@ AppAsset::register($this);
 <header>
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+        'brandLabel' => 'CRUD PROMAD',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
@@ -36,19 +36,22 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Início', 'url' => ['/site/index']],
+        ['label' => 'Usuários', 'url' => ['/user/index']],
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Registre-se', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Conecte-se', 'url' => ['/site/login']];
+        $menuItems[] = ['label' => 'Registre-se', 'url' => ['/user/signup']];
+        $menuItems[] = ['label' => 'Conecte-se', 'url' => ['/user/login']];
     } else {
+        $menuItems[] = ['label' => 'Minha Conta', 'url' => ['/user/update']];
         $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
+            . Html::beginForm(['/user/logout'], 'post', ['class' => 'form-inline'])
             . Html::submitButton(
                 'Logout (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link logout']
             )
             . Html::endForm()
             . '</li>';
+        ;
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
@@ -70,7 +73,7 @@ AppAsset::register($this);
 
 <footer class="footer mt-auto py-3 text-muted">
     <div class="container">
-        <p class="float-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="float-left">&copy; CRUD PROMAD <?= date('Y') ?></p>
         <p class="float-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
