@@ -8,6 +8,7 @@ use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 use yii\base\NotSupportedException;
+use yiibr\brvalidator\CpfValidator;
 
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -22,7 +23,8 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['email','username' ,'auth_key'], 'safe']
+            [['email','username' ,'auth_key'], 'safe'],
+            ['username', CpfValidator::className()],
         ];
     }
 

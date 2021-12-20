@@ -19,8 +19,6 @@ $(document).ready(function() {
                     if("error" in result){
                         $("#user-username").val(user_name_old);
                         alert(result['error']);
-                    }else{
-                        alert(result['success'])
                     }
                     $(".user-form").css({"pointer-events": "all","opacity": "100%"})
                     $("#loader").css({"display": "none"});
@@ -30,6 +28,9 @@ $(document).ready(function() {
                     $("#user-username").val(user_name_old);
                 }
             });
+        }else{
+            $(".user-form").css({"pointer-events": "all","opacity": "100%"})
+            $("#loader").css({"display": "none"});
         }
     })
 

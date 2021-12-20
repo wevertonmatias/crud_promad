@@ -142,7 +142,6 @@ class UserController extends Controller
         $model = $this->findModel($id);
 
         if (Yii::$app->request->isAjax) {
-            #TODO: Implementar validação CPF
             Yii::$app->response->format = Response::FORMAT_JSON;
             $user_name = $this->request->post("user_name");
 

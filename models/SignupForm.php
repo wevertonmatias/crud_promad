@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use app\models\User;
+use yiibr\brvalidator\CpfValidator;
 
 /**
  * Signup form
@@ -19,14 +20,14 @@ class SignupForm extends Model
     /**
      * {@inheritdoc}
      */
-    #TODO: Implementar validação de CPF.
     public function rules()
     {
         return [
             ['username', 'trim'],
             ['username', 'required'],
             ['username', 'unique', 'targetClass' => 'app\models\User', 'message' => 'This username has already been taken.'],
-            ['username', 'string', 'min' => 2, 'max' => 255],
+            ['username', 'string'],
+            ['username', CpfValidator::className()],
 
             ['email', 'trim'],
             ['email', 'required'],
